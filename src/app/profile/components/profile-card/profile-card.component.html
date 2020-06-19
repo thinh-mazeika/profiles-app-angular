@@ -1,1 +1,14 @@
-<p>profile-card works!</p>
+<div class="profile-card-container">
+    <div class="image-container">
+        <img src="{{ profile.picUrl }}" alt="{{ profile.name }}" />
+    </div>
+    <div class="profile-details">
+        <div class="social-icons">
+           
+        </div>
+        <div>{{ profile.name }}</div>
+        <div>{{ profile.occupation }}</div>
+        <div>{{ profile.city }}</div>
+        <div>{{ profile.bio }}</div>
+    </div>
+</div>
