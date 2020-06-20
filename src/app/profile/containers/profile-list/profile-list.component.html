@@ -1,4 +1,6 @@
 <div class="profile-list">
-    <h2>User Profiles <span>()</span></h2>
+    <p class="header">
+      User Profiles <span>()</span>
+    </p>
     <app-profile-card [profile]="profile" *ngFor="let profile of profiles$ | async" ></app-profile-card>
 </div>

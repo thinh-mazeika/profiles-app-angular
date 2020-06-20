@@ -1,0 +1,17 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.profile-list {
+    background-color: #f8f8f8;
+    display: flex;
+    flex-flow: wrap;
+    margin: 40px;
+    max-width: 1400px;
+}
+
+.header {
+    color: #4a4a4a;
+    font-size: 40px;
+    font-weight: 900;
+    margin-top: 145px;
+    margin-left: 40px;
+}

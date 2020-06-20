@@ -15,6 +15,8 @@ export class ProfileListComponent implements OnInit {
     this.profiles$ = this.profileService.getProfiles$();
    }
 
+ 
+
   ngOnInit(): void {
 
   }

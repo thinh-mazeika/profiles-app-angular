@@ -11,6 +11,12 @@ export class ProfileCardComponent implements OnInit {
 
   constructor() { }
 
+  getImagePath(socialProfile: string): string {
+    const imagePath = '/assets/images/'; 
+    const socialProfileImage = socialProfile.charAt(0).toUpperCase() + socialProfile.slice(1) + 'Icon.png';
+    return imagePath + socialProfileImage;
+  }
+
   ngOnInit(): void {
   }
 

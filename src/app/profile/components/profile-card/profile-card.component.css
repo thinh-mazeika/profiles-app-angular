@@ -1,0 +1,118 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+.app-container {
+    background-color: white;
+    box-shadow: 0 1px 5px rgba(0, 0, 9, 0.15);
+    border-radius: 25px;
+    display: flex;
+    height: 250px;
+    margin-bottom: 40px;
+    margin-right: 40px;
+    padding: 25px;
+    position: relative;
+    width: 660px;
+}
+
+.profilecard-content {
+    margin-left: 25px;
+    position: relative;
+    width: 100%;
+}
+
+.name {
+    color: #4a4a4a;
+    font-size: 28px;
+    font-weight: 900;
+  }
+
+.occupation {
+    color: #4a4a4a;
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.city {
+    color: #bfbfbf;
+    font-size: 16px;
+}
+
+.social-icons {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.icon {
+    height: 30px;
+    margin-left: 5px;
+    width: 30px;
+}
+
+.bio {
+    color: #4a4a4a;
+    content: '';
+    font-size: 16px;
+    font-weight: normal;
+    max-height: 68px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.bio:after {
+    background: -webkit-linear-gradient(transparent, white);
+    background: -o-linear-gradient(transparent, white);
+    background: -moz-linear-gradient(transparent, white);
+    background: linear-gradient(transparent, white);
+    content: '';
+    height: 45px;
+    left: 0;
+    position: absolute;
+    top: 23px;
+    width: 100%;
+}
+
+.buttons-container {
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.view-edit {
+    display: flex;
+}
+
+.btn-primary {
+    border-radius: 10px;
+    margin-right: 15px;
+    font-size: 16px;
+    font-weight: normal;
+    height: 30px;
+    outline: none;
+    width: 120px;
+    padding: 0;
+}
+
+.btn-outline-primary {
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1px solid #007Bff;
+    color: #007Bff;
+    font-size: 16px;
+    width: 120px;
+    height: 30px;
+    outline: none;
+    padding: 0;
+}
+
+.btn-outline-danger {
+    border-radius: 10px;
+    font-size: 16px;
+    width: 120px;
+    height: 30px;
+    outline: none;
+    padding: 0;
+}
