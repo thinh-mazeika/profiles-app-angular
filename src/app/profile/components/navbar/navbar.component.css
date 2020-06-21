@@ -1,0 +1,18 @@
+.navbar {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 40px;
+}
+
+.profiles {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-right: 40px;
+  }
