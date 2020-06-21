@@ -1,6 +1,6 @@
-<div class="profile-list">
+<div class="profile-list" *ngIf="profiles$ | async as profiles">
     <p class="header">
-      User Profiles <span>()</span>
+      User Profiles <span>({{ profiles.length }})</span>
     </p>
-    <app-profile-card [profile]="profile" *ngFor="let profile of profiles$ | async" ></app-profile-card>
+    <app-profile-card [profile]="profile" *ngFor="let profile of profiles" ></app-profile-card>
 </div>
