@@ -62,8 +62,8 @@ export class ProfileService {
     searchTerm = searchTerm.toLocaleLowerCase();
     return profiles.filter(
       (profile: Person) =>
-        profile.name.toLocaleLowerCase().indexOf(searchTerm) !== -1 ||
-        profile.bio.toLocaleLowerCase().indexOf(searchTerm) !== -1
+        profile.name.toLocaleLowerCase().includes(searchTerm) ||
+        profile.bio.toLocaleLowerCase().includes(searchTerm)
     );
   }
 }

@@ -14,4 +14,11 @@ export class NavbarComponent implements OnInit {
   onSearchChange(searchTerm: string): void {
     this.profileService.updateSearchTerm(searchTerm);
   }
+
+  scrollToTop() {
+    return window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
 }

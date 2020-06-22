@@ -1,8 +1,14 @@
 <div *ngIf="profiles$ | async as profiles">
-    <p class="header">
-      User Profiles <span>({{ profiles.length }})</span>
-    </p>
-    <div class="profile-list">
-      <app-profile-card [profile]="profile" *ngFor="let profile of profiles" ></app-profile-card>
-    </div>
+  <p class="header">
+    <span>{{
+      profiles.length === 10 ? "User Profiles" : "Search Results"
+    }}</span>
+    <span>({{ profiles.length }})</span>
+  </p>
+  <div class="profile-list">
+    <app-profile-card
+      [profile]="profile"
+      *ngFor="let profile of profiles"
+    ></app-profile-card>
+  </div>
 </div>
