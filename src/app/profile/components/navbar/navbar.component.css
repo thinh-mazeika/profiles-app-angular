@@ -1,8 +1,9 @@
 .navbar {
-    height: 80px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding: 0;
+    margin: 0;
 }
 
 .logo {
@@ -11,8 +12,36 @@
 
 .profiles {
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     margin-left: 5px;
     margin-right: 40px;
-  }
+}
+
+.search-box {
+    border: none;
+    border-radius: 10px;
+    caret-color: #22a7f0;
+    font-size: 16px;
+    height: 30px;
+    margin-right: 20px;
+    text-indent: 5%;
+    outline: none;
+    width: 235px;
+}
+
+.search-box::placeholder{
+    color: #22a7f0;
+}
+
+.btn-outline-success {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  height: 30px;
+  width: 200px;
+  outline: none;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}

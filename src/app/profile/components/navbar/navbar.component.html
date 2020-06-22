@@ -1,10 +1,24 @@
-<nav class="navbar fixed-top" style=" background: linear-gradient(to right, #22a7f0, #47d3f9);">
-    <a class="navbar-brand" href="#">
-      <img src="/assets/images/LogoSmall.png" class="logo" alt="logo">
-        <span class="profiles">profiles</span>
-    </a>
-    <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">+ Add New Profile</button>
-    </form>
-  </nav>
+<nav
+  class="navbar fixed-top"
+  style="background: linear-gradient(to right, #22a7f0, #47d3f9);"
+>
+  <a class="navbar-brand" href="#">
+    <img src="/assets/images/LogoSmall.png" class="logo" alt="logo" />
+    <span class="profiles">profiles</span>
+  </a>
+  <form class="form-inline">
+    <input
+      class="search-box"
+      #searchBox
+      id="searchBox"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+      (input)="onSearchChange(searchBox.value)"
+    />
+
+    <button class="btn btn-outline-success" type="submit">
+      + Add New Profile
+    </button>
+  </form>
+</nav>
