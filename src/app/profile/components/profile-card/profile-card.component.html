@@ -1,25 +1,39 @@
 <div class="app-container">
-    <div class="image-container">
-        <img src="{{ profile.picUrl }}" alt="{{ profile.name }}" class="rounded-circle" />
+  <div class="image-container">
+    <img
+      src="{{ profile.picUrl }}"
+      alt="{{ profile.name }}"
+      class="rounded-circle"
+    />
+  </div>
+  <div class="profilecard-content">
+    <div class="social-icons">
+      <img
+        *ngFor="let socialProfile of profile.socialProfiles"
+        [src]="getImagePath(socialProfile)"
+        [alt]="socialProfile"
+        class="icon"
+      />
     </div>
-    <div class="profilecard-content">
-        <div class="social-icons">
-            <img *ngFor="let socialProfile of profile.socialProfiles" 
-                [src]="getImagePath(socialProfile)" [alt]="socialProfile" class="icon">
-        </div>
-        <div class="name">{{ profile.name }}</div>
-        <div class="occupation">{{ profile.occupation }}</div>
-        <div class="city">{{ profile.city }}</div>
-        <div class="bio">{{ profile.bio }}</div>
+    <div class="name">{{ profile.name }}</div>
+    <div class="occupation">{{ profile.occupation }}</div>
+    <div class="city">{{ profile.city }}</div>
+    <div class="bio">{{ profile.bio }}</div>
 
-        <div class="buttons-container">
-            <div class="view-edit">
-                <button type="button" class="btn btn-primary">View Details</button>
-                <button type="button" class="btn btn-outline-primary">Edit</button>
-            </div>
-            <div class="delete-btn">
-                <button type="button" class="btn btn-outline-danger">Delete</button>
-            </div>
-        </div>
+    <div class="buttons-container">
+      <div class="view-edit">
+        <button type="button" class="btn btn-primary">View Details</button>
+        <button type="button" class="btn btn-outline-primary">Edit</button>
+      </div>
+      <div class="delete-btn">
+        <button
+          type="button"
+          class="btn btn-outline-danger"
+          (click)="open('deleteProfile')"
+        >
+          Delete
+        </button>
+      </div>
     </div>
+  </div>
 </div>
