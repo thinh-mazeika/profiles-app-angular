@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, Type } from '@angular/core';
-import { Person } from '../../models/person';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { DeleteProfileComponent } from '../../modals/delete/delete-profile/delete-profile.component';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { Profile } from '../../interfaces/profile.interface';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-profile-card',
@@ -9,13 +8,10 @@ import { DeleteProfileComponent } from '../../modals/delete/delete-profile/delet
   styleUrls: ['./profile-card.component.css'],
 })
 export class ProfileCardComponent implements OnInit {
-  @Input() profile: Person;
+  @Input() profile: Profile;
+  @Output() onDeleteEvent = new EventEmitter<Profile>();
 
-  constructor(private _modalService: NgbModal) {}
-
-  open(name: string) {
-    this._modalService.open(MODALS[name]);
-  }
+  constructor() {}
 
   getImagePath(socialProfile: string): string {
     const imagePath = '/assets/images/';
@@ -26,9 +22,9 @@ export class ProfileCardComponent implements OnInit {
     return imagePath + socialProfileImage;
   }
 
+  handleClickedDeleteButton() {
+    this.onDeleteEvent.emit(this.profile);
+  }
+
   ngOnInit(): void {}
 }
-
-const MODALS: { [name: string]: Type<any> } = {
-  deleteProfile: DeleteProfileComponent,
-};

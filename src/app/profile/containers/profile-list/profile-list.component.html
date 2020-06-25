@@ -9,6 +9,7 @@
     <app-profile-card
       [profile]="profile"
       *ngFor="let profile of profiles"
+      (onDeleteEvent)="deleteProfile($event)"
     ></app-profile-card>
   </div>
 </div>

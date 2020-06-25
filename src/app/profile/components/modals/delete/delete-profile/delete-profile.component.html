@@ -4,7 +4,7 @@
     type="button"
     class="close"
     aria-describedby="modal-title"
-    (click)="deleteModal.dismiss('Cross click')"
+    (click)="handleClickNo()"
   >
     <span aria-hidden="true">&times;</span>
   </button>
@@ -12,22 +12,19 @@
 <div class="modal-body">
   <p>
     Are you sure you want to delete
-    <span class="text-primary"><strong>lalala</strong></span
+    <span class="text-primary"
+      ><strong>{{ profile.name }}</strong></span
     >?
   </p>
 </div>
 <div class="modal-footer">
-  <button
-    type="button"
-    class="btn btn-primary"
-    (click)="deleteModal.close('Ok click')"
-  >
+  <button type="button" class="btn btn-primary" (click)="handleClickYes()">
     Yes
   </button>
   <button
     type="button"
     class="btn btn-outline-primary"
-    (click)="deleteModal.dismiss('cancel click')"
+    (click)="handleClickNo()"
   >
     No
   </button>
