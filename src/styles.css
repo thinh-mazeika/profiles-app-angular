@@ -5,7 +5,7 @@ html {
   background-color: #f8f8f8;
   box-sizing: border-box;
   font-size: 16px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif !important;
   line-height: 1.2;
 }
 
@@ -13,6 +13,14 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+button {
+  outline: none !important;
+}
+
+.modal-content {
+  padding: 0 70px !important;
 }
 
 body,
