@@ -1,3 +1,7 @@
+.modal-content {
+  border-radius: 1.3rem;
+}
+
 .modal-header {
   display: flex;
   justify-content: center;
@@ -8,6 +12,7 @@
 
 .modal-title {
   text-align: center;
+  margin: 0 70px;
   font-weight: bold;
   font-size: large;
 }
@@ -23,6 +28,36 @@
 
 .modal-body {
   text-align: center;
+}
+
+.form-image {
+  background-color: lightgrey;
+  border-radius: 50%;
+  height: 50px;
+  position: absolute;
+  top: 15px;
+  width: 55px;
+  right: 355px;
+}
+
+.image {
+  background-color: lightgrey;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.form-control-sm {
+  margin-bottom: 0.4rem;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 0px;
+}
+
+.form-control {
+  border-radius: 8px;
 }
 
 .modal-footer {

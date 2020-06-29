@@ -4,6 +4,8 @@ import { ProfileListComponent } from './containers/profile-list/profile-list.com
 import { ProfileCardComponent } from './components/profile-card/profile-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DeleteProfileComponent } from './components/modals/delete/delete-profile/delete-profile.component';
+import { AddProfileComponent } from './components/modals/add/add-profile/add-profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,9 +13,10 @@ import { DeleteProfileComponent } from './components/modals/delete/delete-profil
     ProfileCardComponent,
     NavbarComponent,
     DeleteProfileComponent,
+    AddProfileComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   exports: [NavbarComponent, ProfileListComponent, ProfileCardComponent],
-  entryComponents: [DeleteProfileComponent],
+  entryComponents: [DeleteProfileComponent, AddProfileComponent],
 })
 export class ProfileModule {}

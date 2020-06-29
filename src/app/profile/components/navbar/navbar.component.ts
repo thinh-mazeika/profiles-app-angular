@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../services/profile.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddProfileComponent } from '../modals/add/add-profile/add-profile.component';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +9,10 @@ import { ProfileService } from '../../services/profile.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  constructor(private profileService: ProfileService) {}
+  constructor(
+    private profileService: ProfileService,
+    private _modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {}
 
@@ -19,6 +24,13 @@ export class NavbarComponent implements OnInit {
     return window.scrollTo({
       top: 0,
       behavior: 'smooth',
+    });
+  }
+
+  openAddProfileForm(): void {
+    this._modalService.open(AddProfileComponent, {
+      centered: true,
+      backdrop: 'static',
     });
   }
 }

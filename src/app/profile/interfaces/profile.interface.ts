@@ -4,6 +4,7 @@ export interface Profile {
   name: string;
   occupation: string;
   city: string;
+  state: string;
   bio: string;
   socialProfiles: string[];
 }

@@ -11,7 +11,7 @@
     />
     <span class="profiles">profiles</span>
   </a>
-  <form class="form-inline">
+  <div class="form-inline">
     <input
       class="search-box"
       #searchBox
@@ -22,8 +22,12 @@
       (input)="onSearchChange(searchBox.value)"
     />
 
-    <button class="btn btn-outline-success" type="submit">
+    <button
+      class="btn btn-outline-success"
+      type="submit"
+      (click)="openAddProfileForm()"
+    >
       + Add New Profile
     </button>
-  </form>
+  </div>
 </nav>
