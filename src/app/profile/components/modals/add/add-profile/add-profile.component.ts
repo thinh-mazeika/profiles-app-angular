@@ -8,8 +8,10 @@ import {
   FormArray,
 } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Profile } from 'src/app/profile/models/profile';
+
 import { ProfileService } from 'src/app/profile/services/profile.service';
+
+import { usStates } from './usStates';
 
 @Component({
   selector: 'app-add-profile',
@@ -17,7 +19,8 @@ import { ProfileService } from 'src/app/profile/services/profile.service';
   styleUrls: ['./add-profile.component.css'],
 })
 export class AddProfileComponent implements OnInit {
-  profile = new Profile();
+  states = usStates;
+
   addForm = this.fb.group({
     picUrl: ['', Validators.required],
     name: ['', Validators.required],
@@ -25,7 +28,6 @@ export class AddProfileComponent implements OnInit {
     city: ['', Validators.required],
     state: ['', Validators.required],
     bio: ['', Validators.required],
-    socialProfiles: ['', Validators.required],
   });
 
   constructor(
@@ -34,13 +36,9 @@ export class AddProfileComponent implements OnInit {
     private profileService: ProfileService
   ) {}
 
-  onSubmit() {
-    console.warn(this.addForm.value);
-  }
-
-  save() {
-    console.log(this.addForm);
-    console.log('Saved: ' + JSON.stringify(this.addForm.value));
+  addProfile() {
+    this.profileService.addProfile(this.addForm.value);
+    this.addModal.close();
   }
 
   ngOnInit(): void {}

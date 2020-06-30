@@ -30,7 +30,10 @@ export class ProfileService {
       this.profilesSubject.asObservable(),
       this.searchTermSubject.asObservable()
     ).pipe(
-      map(([profiles, searchTerm]) => this.filterProfiles(profiles, searchTerm))
+      map(([profiles, searchTerm]) =>
+        this.filterProfiles(profiles, searchTerm)
+      ),
+      map((profiles: Profile[]) => profiles.sort(this.sortProfiles))
     );
   }
 
@@ -38,41 +41,20 @@ export class ProfileService {
     this.searchTermSubject.next(searchTerm);
   }
 
-  addProfile(profile: Profile, headers: HttpHeaders): Observable<Profile> {
-    profile.id = null;
-    return this.http
-      .post<Profile>(this.profilesUrl, profile, { headers: headers })
+  addProfile(profile: Profile): void {
+    this.http
+      .post<Profile>(this.profilesUrl, profile, this.httpOptions)
       .pipe(
         tap((data) => console.log('addProfile: ' + JSON.stringify(data))),
-        tap((data) => {
-          this.profiles.push(data);
-        }),
         catchError(() => {
           this.handleError('add profile');
           return EMPTY;
         })
-      );
-  }
-
-  saveProfile(profile: Profile): Observable<Profile> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    if (profile.id === 0) {
-      return this.addProfile(profile, headers);
-    }
-    return this.updateProfile(profile, headers);
-  }
-
-  updateProfile(profile: Profile, headers: HttpHeaders): Observable<Profile> {
-    const url = `${this.profilesUrl}/${profile.id}`;
-    return this.http
-      .put<Profile>(this.profilesUrl, profile, { headers: headers })
-      .pipe(
-        tap((data) => console.log('updateProfile: ' + profile.id)),
-        catchError(() => {
-          this.handleError('update profile');
-          return EMPTY;
-        })
-      );
+      )
+      .subscribe((data) => {
+        this.profiles.push(data);
+        this.profilesSubject.next(this.profiles);
+      });
   }
 
   deleteProfile(profile: Profile): void {
@@ -95,7 +77,6 @@ export class ProfileService {
     this.http
       .get<Profile[]>(this.profilesUrl)
       .pipe(
-        map((profiles: Profile[]) => profiles.sort(this.sortProfiles)),
         catchError(() => {
           this.handleError('get profiles');
           return EMPTY;
