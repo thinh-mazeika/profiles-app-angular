@@ -10,6 +10,7 @@ import { EventEmitter } from '@angular/core';
 export class ProfileCardComponent implements OnInit {
   @Input() profile: Profile;
   @Output() onDeleteEvent = new EventEmitter<Profile>();
+  @Output() onEditEvent = new EventEmitter<Profile>();
 
   constructor() {}
 
@@ -24,6 +25,10 @@ export class ProfileCardComponent implements OnInit {
 
   handleClickedDeleteButton() {
     this.onDeleteEvent.emit(this.profile);
+  }
+
+  handleClickedEditButton() {
+    this.onEditEvent.emit(this.profile);
   }
 
   ngOnInit(): void {}
