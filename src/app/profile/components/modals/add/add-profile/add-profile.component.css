@@ -60,6 +60,16 @@
   border-radius: 8px;
 }
 
+.form-row {
+  flex-wrap: nowrap;
+}
+
+.icons {
+  margin-left: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
 .modal-footer {
   display: flex;
   justify-content: center;
