@@ -1,0 +1,113 @@
+.modal-content {
+  border-radius: 1.3rem;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+}
+
+.modal-title {
+  text-align: center;
+  margin: 0 70px;
+  font-weight: bold;
+  font-size: large;
+}
+
+.close {
+  border: none;
+  font-size: 2.5rem;
+  font-weight: 900;
+  position: absolute;
+  top: -5px;
+  right: 10px;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.form-image {
+  background-color: lightgrey;
+  border-radius: 50%;
+  height: 50px;
+  position: absolute;
+  top: 15px;
+  width: 55px;
+  right: 355px;
+}
+
+.image {
+  background-color: lightgrey;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.form-control-sm {
+  margin-bottom: 0.4rem;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 0px;
+}
+
+.form-control {
+  border-radius: 8px;
+}
+
+.form-row {
+  flex-wrap: nowrap;
+}
+
+.icons {
+  margin-left: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  border-radius: 10px;
+  margin-right: 15px;
+  font-size: 16px;
+  font-weight: normal;
+  height: 30px;
+  outline: none;
+  width: 120px;
+  padding: 0;
+  background-color: #22a7f0;
+}
+
+.btn-primary:hover {
+  background: white;
+  color: #22a7f0;
+}
+
+.btn-outline-primary {
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1px solid #22a7f0;
+  color: #22a7f0;
+  font-size: 16px;
+  width: 120px;
+  height: 30px;
+  outline: none;
+  padding: 0;
+}
+
+.btn-outline-primary:hover {
+  background-color: #22a7f0;
+  color: white;
+}

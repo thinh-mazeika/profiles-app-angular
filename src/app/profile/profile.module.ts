@@ -6,7 +6,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { DeleteProfileComponent } from './components/modals/delete/delete-profile/delete-profile.component';
 import { AddProfileComponent } from './components/modals/add/add-profile/add-profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EditComponent } from './components/modals/edit/edit.component';
+import { EditProfileComponent } from './components/modals/edit/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -15,10 +15,14 @@ import { EditComponent } from './components/modals/edit/edit.component';
     NavbarComponent,
     DeleteProfileComponent,
     AddProfileComponent,
-    EditComponent,
+    EditProfileComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule],
   exports: [NavbarComponent, ProfileListComponent, ProfileCardComponent],
-  entryComponents: [DeleteProfileComponent, AddProfileComponent],
+  entryComponents: [
+    DeleteProfileComponent,
+    AddProfileComponent,
+    EditProfileComponent,
+  ],
 })
 export class ProfileModule {}

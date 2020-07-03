@@ -13,7 +13,11 @@
   <form [formGroup]="addForm">
     <div class="form-group">
       <div class="form-image">
-        <img alt="" class="image" src="" />
+        <img
+          [alt]="addForm.get('name').value"
+          class="image"
+          [src]="addForm.get('picUrl').value"
+        />
       </div>
 
       <input
@@ -21,42 +25,86 @@
         type="text"
         class="form-control form-control-sm"
         placeholder="URL"
+        [ngClass]="{
+          'is-invalid': isInvalid('picUrl')
+        }"
       />
+      <span class="invalid-feedback">
+        <span *ngIf="addForm.get('picUrl').errors?.required">
+          PicUrl is required!
+        </span>
+      </span>
       <input
         formControlName="name"
         type="text"
         class="form-control form-control-sm"
         placeholder="Name"
+        [value]="addForm.get('name').value | titlecase"
+        [ngClass]="{
+          'is-invalid': isInvalid('name')
+        }"
       />
+      <span class="invalid-feedback">
+        <span *ngIf="addForm.get('name').errors?.required">
+          Please enter your first and last name!
+        </span>
+      </span>
       <input
         formControlName="occupation"
         type="text"
         class="form-control form-control-sm"
         placeholder="Occupation"
+        [ngClass]="{
+          'is-invalid': isInvalid('occupation')
+        }"
       />
+      <span class="invalid-feedback">
+        <span *ngIf="addForm.get('occupation').errors?.required">
+          Occupation is required!
+        </span>
+      </span>
     </div>
 
-    <div class="form-row">
-      <div class="form-group col-md-8">
-        <input
-          formControlName="city"
-          type="text"
-          placeholder="City"
-          class="form-control form-control-sm"
-        />
-      </div>
-      <div class="form-group col-md-4">
-        <select
-          id="inputState"
-          formControlName="state"
-          placeholder="State"
-          class="form-control form-control-sm"
-        >
-          <option value="">State</option>
-          <option *ngFor="let state of states" value="state.value">{{
-            state.value
-          }}</option>
-        </select>
+    <div class="form-group">
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <input
+            formControlName="city"
+            type="text"
+            placeholder="City"
+            class="form-control form-control-sm"
+            [value]="addForm.get('city').value | titlecase"
+            [ngClass]="{
+              'is-invalid': isInvalid('city')
+            }"
+          />
+          <span class="invalid-feedback">
+            <span *ngIf="addForm.get('city').errors?.required">
+              City is required!
+            </span>
+          </span>
+        </div>
+        <div class="form-group col-md-4">
+          <select
+            id="inputState"
+            formControlName="state"
+            placeholder="State"
+            class="form-control form-control-sm"
+            [ngClass]="{
+              'is-invalid': isInvalid('state')
+            }"
+          >
+            <option value="">State</option>
+            <option *ngFor="let state of states" [value]="state.abbreviation">{{
+              state.abbreviation
+            }}</option>
+          </select>
+          <span class="invalid-feedback">
+            <span *ngIf="addForm.get('state').errors?.required">
+              State is required!
+            </span>
+          </span>
+        </div>
       </div>
     </div>
 
@@ -66,7 +114,15 @@
         class="form-control"
         rows="4"
         placeholder="Bio"
+        [ngClass]="{
+          'is-invalid': isInvalid('bio')
+        }"
       ></textarea>
+      <span class="invalid-feedback">
+        <span *ngIf="addForm.get('bio').errors?.required">
+          Bio is required!
+        </span>
+      </span>
     </div>
   </form>
 </div>

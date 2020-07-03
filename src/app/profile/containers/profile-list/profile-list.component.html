@@ -10,6 +10,7 @@
       [profile]="profile"
       *ngFor="let profile of profiles"
       (onDeleteEvent)="deleteProfile($event)"
+      (onEditEvent)="editProfile($event)"
     ></app-profile-card>
   </div>
 </div>

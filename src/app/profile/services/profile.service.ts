@@ -73,6 +73,23 @@ export class ProfileService {
       });
   }
 
+  editProfile(profile: Profile): void {
+    const url = `${this.profilesUrl}/${profile.id}`;
+    this.http
+      .put<Profile>(url, profile, this.httpOptions)
+      .pipe(
+        catchError(() => {
+          this.handleError(`edit Profile "${profile.name}"`);
+          return EMPTY;
+        })
+      )
+      .subscribe(() => {
+        const index = this.profiles.findIndex((p) => p.id === profile.id);
+        this.profiles[index] = profile;
+        this.profilesSubject.next(this.profiles);
+      });
+  }
+
   private intializeProfiles(): void {
     this.http
       .get<Profile[]>(this.profilesUrl)

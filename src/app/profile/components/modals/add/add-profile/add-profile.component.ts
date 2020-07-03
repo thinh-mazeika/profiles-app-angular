@@ -1,17 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  AbstractControl,
-  ValidatorFn,
-  FormArray,
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { ProfileService } from 'src/app/profile/services/profile.service';
-
 import { usStates } from './usStates';
+
+const validNameRegex = RegExp(/[a-zA-Z]+\s{1}[a-zA-Z]+/g);
 
 @Component({
   selector: 'app-add-profile',
@@ -33,9 +27,16 @@ export class AddProfileComponent implements OnInit {
     return Object.keys(this.socialProfileMap);
   }
 
+  isInvalid(field: string): boolean {
+    const fieldControl = this.addForm.get(field);
+    const isInvalid =
+      fieldControl.touched && fieldControl.dirty && fieldControl.invalid;
+    return isInvalid;
+  }
+
   addForm = this.fb.group({
     picUrl: ['', Validators.required],
-    name: ['', Validators.required],
+    name: ['', [Validators.required, Validators.pattern(validNameRegex)]],
     occupation: ['', Validators.required],
     city: ['', Validators.required],
     state: ['', Validators.required],
@@ -52,8 +53,8 @@ export class AddProfileComponent implements OnInit {
     const socialProfilesArray = this.socialProfiles.filter((socialProfile) => {
       return this.socialProfileMap[socialProfile];
     });
-    const result = (this.addForm.value.socialProfiles = socialProfilesArray);
-    console.log(result);
+    this.addForm.value.socialProfiles = socialProfilesArray;
+
     this.profileService.addProfile(this.addForm.value);
     this.addModal.close();
   }

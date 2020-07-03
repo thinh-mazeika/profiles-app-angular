@@ -4,6 +4,7 @@ import { Profile } from '../../interfaces/profile.interface';
 import { ProfileService } from '../../services/profile.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeleteProfileComponent } from '../../components/modals/delete/delete-profile/delete-profile.component';
+import { EditProfileComponent } from '../../components/modals/edit/edit-profile.component';
 
 @Component({
   selector: 'app-profile-list',
@@ -34,5 +35,14 @@ export class ProfileListComponent implements OnInit {
     if (result) {
       this.profileService.deleteProfile(profile);
     }
+  }
+
+  async editProfile(profile: Profile): Promise<void> {
+    const modalRef = this._modalService.open(EditProfileComponent, {
+      centered: true,
+      backdrop: 'static',
+    });
+
+    modalRef.componentInstance.profile = profile;
   }
 }
