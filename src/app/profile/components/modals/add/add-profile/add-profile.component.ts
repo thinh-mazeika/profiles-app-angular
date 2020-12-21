@@ -28,10 +28,13 @@ export class AddProfileComponent implements OnInit {
   }
 
   isInvalid(field: string): boolean {
-    const fieldControl = this.addForm.get(field);
-    const isInvalid =
-      fieldControl.touched && fieldControl.dirty && fieldControl.invalid;
-    return isInvalid;
+    const { dirty, touched, invalid } = this.addForm.get(field);
+    return touched && dirty && invalid;
+  }
+
+  invalidFeedback(field: string, errorType = 'required'): boolean {
+    const { dirty, touched, errors } = this.addForm.get(field);
+    return touched && dirty && errors?.[errorType];
   }
 
   addForm = this.fb.group({

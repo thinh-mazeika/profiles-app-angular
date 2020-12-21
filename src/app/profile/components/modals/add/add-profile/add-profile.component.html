@@ -34,6 +34,7 @@
           PicUrl is required!
         </span>
       </span>
+
       <input
         formControlName="name"
         type="text"
@@ -45,10 +46,14 @@
         }"
       />
       <span class="invalid-feedback">
-        <span *ngIf="addForm.get('name').errors?.required">
+        <span *ngIf="invalidFeedback('name')">
+          Please enter your name!
+        </span>
+        <span *ngIf="invalidFeedback('name', 'pattern')">
           Please enter your first and last name!
         </span>
       </span>
+
       <input
         formControlName="occupation"
         type="text"
@@ -59,7 +64,7 @@
         }"
       />
       <span class="invalid-feedback">
-        <span *ngIf="addForm.get('occupation').errors?.required">
+        <span *ngIf="invalidFeedback('occupation')">
           Occupation is required!
         </span>
       </span>
