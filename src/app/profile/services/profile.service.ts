@@ -26,10 +26,10 @@ export class ProfileService {
   }
 
   getProfiles$(): Observable<Profile[]> {
-    return combineLatest(
+    return combineLatest([
       this.profilesSubject.asObservable(),
-      this.searchTermSubject.asObservable()
-    ).pipe(
+      this.searchTermSubject.asObservable(),
+    ]).pipe(
       map(([profiles, searchTerm]) =>
         this.filterProfiles(profiles, searchTerm)
       ),
